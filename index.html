@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../libraries/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+  	<title>studies-in-flatland</title>
+
+  	<script src="../libraries/p5.js"></script>
+  	<script src="../libraries/p5.dom.js"></script>
+    <script src="../libraries/jquery.min.js" ></script>
+    <script src="../libraries/bootstrap.min.js" ></script>
+    <script src="../main/js/classes/Colors.js"></script>
+    <script src="classes/VectorND.js"></script>
+    <script src="classes/TableHelper.js"></script>
+    <script src="classes/MatrixMath.js"></script>
+    <script src="classes/ProjectionMatrices.js"></script>
+    <script src="classes/RotationMatrices.js"></script>
+    <script src="sketch.js"></script>
+
+  </head>
+  <body>
+    <div>
+      <a href="https://www.joncraven.com/portfolio/">&lt;Portfolio</a>
+    </div>
+    <div>
+      <h1>>studies-in-flatland</h1>
+    </div>
+    <div>
+      <p>
+        One of my favorite books of all time is the incredibly nerd, <i>Adventures in Flatland</i>. Which tells the story of a two-dimesional character's encounter with a three-dimensional being.
+        The story also adresses the lower dimesions as well in a very charming way, there's a link in the credits section if you're interested. I highly recommend it.
+      </p>
+      <p>
+        Recently, I came across a tutorial video put together my the incredibly nerdy, Dan Shiffman, that reminded me of that story, all about 2D projections of 3D objects.
+        So, in the spirit of Edwin A. Abbott, here are my studies in Flatland.
+      </p>
+    </div>
+    <div>
+      <p>
+        First thing to talk about are tables, in Mathematics circles these are called marices, but I hate spelling that word, and the format confuses me so if you are already familiar with the subject, I apologize in advance.
+      </p>
+      <p>
+        Lets start with the easiest example. A single point in 2D.
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div id="canvas">
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <div id="input" >
+          <!-- <div class="row"> -->
+            <!-- <div class=""> -->
+            <!-- </div> -->
+            <!-- <button id="btnMinusDim" type="button" class="btn btn-default">
+              <
+            </button>
+            <span id="spanCurrentDim"></span>
+            <button id="btnPlusDim" type="button" class="btn btn-default">
+              >
+            </button>
+          </div>
+          <div class="row">
+            <button id="btnMinusSides" type="button" class="btn btn-default">
+              <
+            </button>
+            <span id="spanCurrentSides"></span>
+            <button id="btnPlusSides" type="button" class="btn btn-default">
+              >
+            </button>
+          </div> -->
+          <div class="row">
+            <p id="description">
+              <span id="descDim">2</span> dimesion(s) is repesented by <span id=descNum>4</span> (<span>2</span>*2) <span>line</span>s to define a <span>plane</span>.
+            </p>
+            <p>
+              Projection Matrix
+            </p>
+            <h4 id="vertAxis"># of Desired Dimensions</h4>
+            <h4># of Current Dimensions</h4>
+            <table id="tableMatrix">
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
