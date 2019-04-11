@@ -8,16 +8,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-    <link rel="stylesheet" href="../libraries/bootstrap.min.css">
+    <link rel="stylesheet" href="libraries/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 
   	<title>studies-in-flatland</title>
 
-  	<script src="../libraries/p5.js"></script>
-  	<script src="../libraries/p5.dom.js"></script>
-    <script src="../libraries/jquery.min.js" ></script>
-    <script src="../libraries/bootstrap.min.js" ></script>
-    <script src="../main/js/classes/Colors.js"></script>
+    <script src="libraries/jquery.min.js"></script>
+    <script src="libraries/bootstrap.min.js"></script>
+  	<script src="libraries/p5.js"></script>
+    <script src="libraries/p5.dom.js"></script>
     <script src="classes/VectorND.js"></script>
     <script src="classes/TableHelper.js"></script>
     <script src="classes/MatrixMath.js"></script>
@@ -57,28 +56,7 @@
         </div>
       </div>
       <div class="col-md-6 col-sm-6">
-        <div id="input" >
-          <!-- <div class="row"> -->
-            <!-- <div class=""> -->
-            <!-- </div> -->
-            <!-- <button id="btnMinusDim" type="button" class="btn btn-default">
-              <
-            </button>
-            <span id="spanCurrentDim"></span>
-            <button id="btnPlusDim" type="button" class="btn btn-default">
-              >
-            </button>
-          </div>
-          <div class="row">
-            <button id="btnMinusSides" type="button" class="btn btn-default">
-              <
-            </button>
-            <span id="spanCurrentSides"></span>
-            <button id="btnPlusSides" type="button" class="btn btn-default">
-              >
-            </button>
-          </div> -->
-          <div class="row">
+        <div class="row">
             <p id="description">
               <span id="descDim">2</span> dimesion(s) is repesented by <span id=descNum>4</span> (<span>2</span>*2) <span>line</span>s to define a <span>plane</span>.
             </p>
@@ -87,9 +65,10 @@
             </p>
             <h4 id="vertAxis"># of Desired Dimensions</h4>
             <h4># of Current Dimensions</h4>
-            <table id="tableMatrix">
-            </table>
-          </div>
+            <div id="tableMatrix"></div>
+        </div>
+        <div id="input" class="row">
+
         </div>
       </div>
     </div>

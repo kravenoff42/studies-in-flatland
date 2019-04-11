@@ -39,8 +39,8 @@ class TableHelper{
     // console.log("Rows: ",rows);
     // console.log("Columns: ",cols);
     for (let r = 0; r < rows; r++){
-      let row;
-      if(includeHeader && r>0) row = this.table.addRow();
+      let row = this.table.addRow();
+      // if(includeHeader && r>0) row = this.table.addRow();
       // else row = this.table.addRow();
       for (let c = 0; c < cols; c++){
           if(r==0) {
@@ -54,7 +54,7 @@ class TableHelper{
     }
   }
   fromTableRow(tableRow){}
-  fromTable(table){}
+  fromTable(table){this.table = table}
   fromObject(obj){}
   fromNumber(num){}
   fromString(str){}
@@ -74,29 +74,33 @@ class TableHelper{
   }
   render(parentDiv){
     let htmlTable = createElement("table");
+    htmlTable.parent(parentDiv);
     let header = this.table.columns;
     if (header[0] !== '0') {
       let rowHead = createElement("tr");
+      rowHead.parent(htmlTable);
       for (let k = 0; k < header.length; k++) {
-        let cellHead = createElement("th",header[k]);
+        let cellHead = createElement("th");
+        console.log(cellHead);
+        cellHead.html(header[k]);
+        console.log(cellHead);
         cellHead.parent(rowHead);
       }
-      rowHead.parent(htmlTable);
     }
-
-console.log(this.table);
     // make rows
     for (let r = 0; r < this.table.getRowCount(); r++) {
       let row = createElement("tr");
-      for (let c = 0; c < this.table.rows[r].length; c++) {
+      row.parent(htmlTable);
+      console.log(this.table.rows[r].arr.length);
+      for (let c = 0; c < this.table.rows[r].arr.length; c++) {
         let content = this.table.getString(r,c.toString());
-        console.log(content);
-        let cell = createElement("td",content);
+        let cell = createElement("td");
+        cell.html(content);
         cell.parent(row);
       }
-      row.parent(htmlTable);
     }
-    htmlTable.parent(parentDiv);
+    console.log(this.table);
+    console.log(htmlTable);
   }
 
   log(){

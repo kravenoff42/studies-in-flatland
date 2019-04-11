@@ -3,6 +3,7 @@ let canvas;
 let divInput;
 let btnMinusDim, spanCurrentDim, btnPlusDim;
 let btnMinusSides, spanCurrentSides, btnPlusSides;
+let numDim, numSides, numDist, numZoom;
 let currentDim, currentSides;
 let tableMatrix;
 let slideX,slideY,slideZ;
@@ -39,7 +40,7 @@ function setup(){
   // aZ = QUARTER_PI;
   currentDim = 4;
   distance = 2.75;
-  currentSides = 0;
+  currentSides = 4;
   unit = 300;
 
     let test = [
@@ -47,18 +48,15 @@ function setup(){
     ["X",1,0,0],
     ["Y",0,1,0]
   ];
-  // let th = new TableHelper(test);
-  // th.log();
-  // th.render(divInput);
 
   updateHTML();
   populateMatrixTable();
-  populatePoints(currentDim);
 }
 
 function draw(){
   background(0);
-
+  updateVariables()
+  populatePoints(currentDim);
   // initRotation3D();
 
   // renderPlanes();
@@ -88,26 +86,31 @@ function updateHTML(){
   header.parent(divInput);
   let lblDim = createElement("label","Dimensions:");
   lblDim.parent(divInput);
-  let numDim = createInput(currentDim.toString(),"number");
+  numDim = createInput(currentDim.toString(),"number");
   numDim.parent(divInput);
   let lblSides = createElement("label","Sides:");
   lblSides.parent(divInput);
-  let numSides = createInput(currentSides.toString(),"number");
+  numSides = createInput(currentSides.toString(),"number");
   numSides.parent(divInput);
-  let lblDist = createElement("label","Distance:");
-  lblDist.parent(divInput);
-  let numDist = createInput(distance.toString(),"number");
+  let lblSize = createElement("label","Size:");
+  lblSize.parent(divInput);
+  numDist = createInput(distance.toString(),"number");
   numDist.parent(divInput);
   let lblZoom = createElement("label","Zoom:");
   lblZoom.parent(divInput);
-  let numZoom = createInput(unit.toString(),"number");
+  numZoom = createInput(unit.toString(),"number");
   numZoom.parent(divInput);
+}
 
-  // spanCurrentDim.html(currentDim);
-  // spanCurrentSides.html(currentSides)
+function updateVariables(){
+  currentDim = numDim.value();
+  currentSides = numSides.value();
+  distance = numDist.value();
+  unit = numZoom.value();
 }
 
 function populatePoints(currentDim){
+  points = [];
   let n = currentDim;
   for (let i = 0; i < (1 << n); i++){
     let m = new Matrix(n,1);
@@ -130,7 +133,7 @@ function populateMatrixTable(){
   p.calcPerspective(target);
   let th = new TableHelper(p.elements,false);
   // th.log();
-  th.render(divInput);
+  th.render(tableMatrix);
   //
   // for (var r = 0; r <= target; r++) {
   //   let row = createElement("tr");
